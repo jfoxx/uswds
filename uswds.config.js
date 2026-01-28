@@ -56,6 +56,7 @@ module.exports = {
   },
 
   // Component mapping: USWDS component name → EDS block name
+  // Only includes components that exist in USWDS packages
   componentMap: {
     // Core components
     'usa-button': 'button',
@@ -68,7 +69,6 @@ module.exports = {
     'usa-card': 'cards',
     'usa-collection': 'collection',
     'usa-table': 'table',
-    'usa-tabs': 'tabs',
     
     // Navigation components
     'usa-header': 'header',
@@ -76,13 +76,14 @@ module.exports = {
     'usa-breadcrumb': 'breadcrumb',
     'usa-pagination': 'pagination',
     'usa-search': 'search',
-    'usa-side-navigation': 'side-nav',
+    'usa-sidenav': 'side-nav',
     'usa-in-page-navigation': 'in-page-nav',
     'usa-step-indicator': 'step-indicator',
     
     // Form components
     'usa-form': 'form',
-    'usa-text-input': 'text-input',
+    'usa-input': 'text-input',
+    'usa-textarea': 'textarea',
     'usa-select': 'select',
     'usa-checkbox': 'checkbox',
     'usa-radio': 'radio',
@@ -98,6 +99,10 @@ module.exports = {
     'usa-range': 'range-slider',
     'usa-time-picker': 'time-picker',
     'usa-validation': 'validation',
+    'usa-fieldset': 'fieldset',
+    'usa-label': 'label',
+    'usa-error-message': 'error-message',
+    'usa-hint': 'hint',
     
     // Content components
     'usa-alert': 'alert',
@@ -110,11 +115,11 @@ module.exports = {
     'usa-site-alert': 'site-alert',
     'usa-summary-box': 'summary-box',
     'usa-tooltip': 'tooltip',
+    'usa-graphic-list': 'graphic-list',
     
     // Specialized components
     'usa-identifier': 'identifier',
     'usa-language-selector': 'language-selector',
-    'usa-data-visualizations': 'data-visualizations',
   },
 
   // Components to exclude from build (if any)

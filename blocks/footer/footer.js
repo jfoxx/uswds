@@ -1,20 +1,20 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
 /**
- * loads and decorates the footer
- * @param {Element} block The footer block element
+ * footer block
+ * Based on USWDS usa-footer component
+ * 
+ * @see https://designsystem.digital.gov/components/footer/
  */
-export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
 
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+import footer from '@uswds/uswds/js/usa-footer';
 
-  block.append(footer);
+export default function decorate(block) {
+  // Initialize USWDS component
+  footer.on(block);
+  
+  // Optional: Add EDS-specific enhancements here
+  
+  // Return cleanup function
+  return () => {
+    footer.off(block);
+  };
 }
