@@ -81,7 +81,7 @@ async function decorateNav(header, fragment) {
   closeBtn.type = 'button';
   closeBtn.className = 'usa-nav__close';
   const closeImg = document.createElement('img');
-  closeImg.src = '/icons/usa-icons-bg/close--white.svg';
+  closeImg.src = '/icons/usa-icons/close.svg';
   closeImg.alt = 'Close';
   closeBtn.appendChild(closeImg);
 
