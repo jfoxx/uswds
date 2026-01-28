@@ -22,16 +22,23 @@ async function decorateNav(header, fragment) {
   // eslint-disable-next-line no-console
   console.log('Brand:', brandSection, 'Nav:', navSection, 'Tools:', toolsSection);
 
-  // Apply header variant from metadata
-  const variant = getMetadata('header-variant') || 'basic';
+  // Apply header variant from metadata (supports both 'header' and 'header-variant')
+  const variant = getMetadata('header') || getMetadata('header-variant') || 'basic';
   const usaHeader = document.createElement('header');
   usaHeader.className = `usa-header usa-header--${variant}`;
 
-  // Create nav-container wrapper (for basic/megamenu variants)
+  // Create nav-container wrapper (for basic/megamenu variants only)
   let navContainer;
   if (variant === 'basic' || variant === 'megamenu') {
     navContainer = document.createElement('div');
     navContainer.className = 'usa-nav-container';
+  }
+
+  // Extended variant needs nav__inner wrapper
+  let navInner;
+  if (variant === 'extended') {
+    navInner = document.createElement('div');
+    navInner.className = 'usa-nav__inner';
   }
 
   // Create navbar (logo/brand section)
@@ -81,11 +88,9 @@ async function decorateNav(header, fragment) {
   closeBtn.type = 'button';
   closeBtn.className = 'usa-nav__close';
   const closeImg = document.createElement('img');
-  closeImg.src = '/icons/usa-icons/close.svg';
+  closeImg.src = '/icons/usa-icons-bg/close--white.svg';
   closeImg.alt = 'Close';
   closeBtn.appendChild(closeImg);
-
-  nav.appendChild(closeBtn);
 
   // Create primary navigation
   const primaryNav = document.createElement('ul');
@@ -157,7 +162,35 @@ async function decorateNav(header, fragment) {
     }
   }
 
-  nav.appendChild(primaryNav);
+  // For extended variant, add secondary nav section
+  let secondaryNav;
+  if (variant === 'extended') {
+    secondaryNav = document.createElement('div');
+    secondaryNav.className = 'usa-nav__secondary';
+
+    // Process secondary links from tools section
+    const secondaryLinks = document.createElement('ul');
+    secondaryLinks.className = 'usa-nav__secondary-links';
+
+    if (toolsSection) {
+      // Find all links in tools section that are NOT in the search block
+      const links = toolsSection.querySelectorAll('a');
+      links.forEach((link) => {
+        // Skip if this link is inside the search block
+        if (!link.closest('.search')) {
+          const li = document.createElement('li');
+          li.className = 'usa-nav__secondary-item';
+          const newLink = document.createElement('a');
+          newLink.href = link.href;
+          newLink.textContent = link.textContent;
+          li.appendChild(newLink);
+          secondaryLinks.appendChild(li);
+        }
+      });
+    }
+
+    secondaryNav.appendChild(secondaryLinks);
+  }
 
   // Add search block if present in tools section
   if (toolsSection) {
@@ -179,9 +212,15 @@ async function decorateNav(header, fragment) {
       const searchSection = document.createElement('section');
       searchSection.setAttribute('aria-label', 'Search component');
       searchSection.appendChild(searchBlock);
-      nav.appendChild(searchSection);
+
+      // For extended variant, add search to secondary nav; otherwise add directly to nav
+      if (secondaryNav) {
+        secondaryNav.appendChild(searchSection);
+      } else {
+        nav.appendChild(searchSection);
+      }
       // eslint-disable-next-line no-console
-      console.log('Search section appended to nav');
+      console.log('Search section appended');
     } else {
       // eslint-disable-next-line no-console
       console.warn('No search block found in tools section');
@@ -191,18 +230,33 @@ async function decorateNav(header, fragment) {
     console.warn('No tools section found');
   }
 
+  // Assemble nav structure based on variant
+  if (navInner) {
+    // Extended variant: wrap primary nav and secondary nav in nav__inner
+    navInner.appendChild(closeBtn);
+    navInner.appendChild(primaryNav);
+    if (secondaryNav) {
+      navInner.appendChild(secondaryNav);
+    }
+    nav.appendChild(navInner);
+  } else {
+    // Basic variant: add elements directly to nav
+    nav.appendChild(closeBtn);
+    nav.appendChild(primaryNav);
+  }
+
   // Note: USWDS JavaScript handles all menu interactions automatically
   // including: mobile menu toggle, accordion dropdowns, click-outside,
   // escape key, and keyboard navigation
 
-  // Assemble header structure (with or without container wrapper)
+  // Assemble final header structure
   if (navContainer) {
-    // Basic/megamenu variants use nav-container wrapper
+    // Basic/megamenu variants: use nav-container wrapper
     navContainer.appendChild(navbar);
     navContainer.appendChild(nav);
     usaHeader.appendChild(navContainer);
   } else {
-    // Extended variant adds navbar and nav directly to header
+    // Extended variant: add navbar and nav directly to header
     usaHeader.appendChild(navbar);
     usaHeader.appendChild(nav);
   }
