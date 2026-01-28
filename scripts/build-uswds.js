@@ -209,8 +209,34 @@ async function buildComponent(blockName, uswdsName) {
   // Build CSS
   await buildComponentCSS(uswdsName, blockName, blockDir);
 
-  // Build JavaScript
-  await buildComponentJS(uswdsName, blockName, blockDir);
+  // Build JavaScript (check .buildignore)
+  // EDS Pattern: All block JS files should be custom decorators
+  const jsPath = `blocks/${blockName}/${blockName}.js`;
+  const buildIgnorePath = path.join(process.cwd(), '.buildignore');
+  let skipJS = false;
+  if (await fs.pathExists(buildIgnorePath)) {
+    const ignoreContent = await fs.readFile(buildIgnorePath, 'utf-8');
+    const ignorePatterns = ignoreContent
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'));
+
+    // Support glob patterns like blocks/**/*.js
+    skipJS = ignorePatterns.some((pattern) => {
+      if (pattern.includes('**')) {
+        // Simple glob matching for **
+        const regex = new RegExp(pattern.replace(/\*\*/g, '.*').replace(/\*/g, '[^/]*'));
+        return regex.test(jsPath);
+      }
+      return jsPath.includes(pattern);
+    });
+  }
+
+  if (skipJS) {
+    log.verbose(`  Skipping ${blockName}.js (protected by .buildignore)`);
+  } else {
+    await buildComponentJS(uswdsName, blockName, blockDir);
+  }
 
   // Create README
   if (config.docs.generateBlockReadmes) {
@@ -386,9 +412,29 @@ async function compileSass(sassContent, outputPath) {
       sourceMap: config.build.sourceMaps,
     });
 
-    // Post-process with autoprefixer
+    // Post-process with autoprefixer and URL rewriting
     const processed = await postcss([
       autoprefixer(config.postcss.autoprefixer),
+      // Rewrite relative URLs to absolute paths
+      {
+        postcssPlugin: 'rewrite-urls',
+        Once(root) {
+          root.walkDecls((decl) => {
+            if (decl.value.includes('url(')) {
+              // Rewrite ../fonts/ to /fonts/ (preserve proper quote syntax)
+              decl.value = decl.value.replace(
+                /url\(["']?\.\.\/fonts\/([^)"']+)(["']?)\)/g,
+                (match, filepath) => `url("/fonts/${filepath}")`,
+              );
+              // Rewrite ../img/ to /icons/ (preserve proper quote syntax)
+              decl.value = decl.value.replace(
+                /url\(["']?\.\.\/img\/([^)"']+)(["']?)\)/g,
+                (match, filepath) => `url("/icons/${filepath}")`,
+              );
+            }
+          });
+        },
+      },
     ]).process(result.css, {
       from: undefined,
       to: outputPath,

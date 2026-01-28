@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
-import { NX_ORIGIN } from './scripts.js';
+// Define NX_ORIGIN inline since it's not exported from scripts.js
+const NX_ORIGIN = window.location.origin;
 
 let expMod;
 const DA_EXP = '/public/plugins/exp/exp.js';

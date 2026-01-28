@@ -1471,126 +1471,126 @@ through all possible variants
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-300.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-regular.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-700.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-300italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-700italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-light-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-light-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Light.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Light.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Regular.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Bold.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-LightItalic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-LightItalic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Italic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-BoldItalic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-BoldItalic.woff2") format("woff2");
 }
 /* stylelint-enable */
 .usa-focus {
@@ -2155,7 +2155,7 @@ through all possible variants
 }
 @media (forced-colors: active) {
   .usa-search [type=submit]::before {
-    background-image: url("../img/usa-icons/search.svg");
+    background-image: url("/icons/usa-icons/search.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.5rem 1.5rem;
@@ -2167,8 +2167,8 @@ through all possible variants
     .usa-search [type=submit]::before {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/search.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/search.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/search.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/search.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2395,7 +2395,7 @@ input[type=search] {
 .usa-accordion__button {
   color: #1b1b1b;
   background-color: #f0f0f0;
-  background-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   background-position: right 1.25rem center;
   background-size: 1.5rem;
@@ -2410,7 +2410,7 @@ input[type=search] {
 .usa-accordion__button:hover {
   color: #1b1b1b;
   background-color: #dfe1e2;
-  background-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   text-decoration: none;
 }
@@ -2420,7 +2420,7 @@ input[type=search] {
     position: relative;
   }
   .usa-accordion__button::before {
-    background-image: url("../img/usa-icons/remove.svg");
+    background-image: url("/icons/usa-icons/remove.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.5rem 1.5rem;
@@ -2432,8 +2432,8 @@ input[type=search] {
     .usa-accordion__button::before {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2452,17 +2452,17 @@ input[type=search] {
 }
 
 .usa-accordion__button[aria-expanded=false] {
-  background-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   background-size: 1.5rem;
 }
 .usa-accordion__button[aria-expanded=false]:hover {
-  background-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-accordion__button[aria-expanded=false]::before {
-    background-image: url("../img/usa-icons/add.svg");
+    background-image: url("/icons/usa-icons/add.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.5rem 1.5rem;
@@ -2474,8 +2474,8 @@ input[type=search] {
     .usa-accordion__button[aria-expanded=false]::before {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2764,7 +2764,7 @@ input[type=search] {
   transform: translateY(-50%);
 }
 .usa-nav__primary button[aria-expanded=false] span::after {
-  background-image: url("../img/usa-icons/add.svg");
+  background-image: url("/icons/usa-icons/add.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.25rem 1.25rem;
@@ -2776,8 +2776,8 @@ input[type=search] {
   .usa-nav__primary button[aria-expanded=false] span::after {
     background: none;
     background-color: ButtonText;
-    -webkit-mask-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
-            mask-image: url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+    -webkit-mask-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+            mask-image: url("/icons/usa-icons/add.svg"), linear-gradient(transparent, transparent);
     -webkit-mask-position: center center;
             mask-position: center center;
     -webkit-mask-repeat: no-repeat;
@@ -2796,7 +2796,7 @@ input[type=search] {
 }
 @media all and (min-width: 64em) {
   .usa-nav__primary button[aria-expanded=false] span::after {
-    background-image: url("../img/usa-icons/expand_more.svg");
+    background-image: url("/icons/usa-icons/expand_more.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1rem 1rem;
@@ -2808,8 +2808,8 @@ input[type=search] {
     .usa-nav__primary button[aria-expanded=false] span::after {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2838,7 +2838,7 @@ input[type=search] {
   }
 }
 .usa-nav__primary button[aria-expanded=true] span::after {
-  background-image: url("../img/usa-icons/remove.svg");
+  background-image: url("/icons/usa-icons/remove.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.25rem 1.25rem;
@@ -2850,8 +2850,8 @@ input[type=search] {
   .usa-nav__primary button[aria-expanded=true] span::after {
     background: none;
     background-color: ButtonText;
-    -webkit-mask-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
-            mask-image: url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+    -webkit-mask-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+            mask-image: url("/icons/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
     -webkit-mask-position: center center;
             mask-position: center center;
     -webkit-mask-repeat: no-repeat;
@@ -2883,7 +2883,7 @@ input[type=search] {
 }
 @media all and (min-width: 64em) and (min-width: 64em) {
   .usa-nav__primary button[aria-expanded=true] span::after {
-    background-image: url("../img/usa-icons/expand_less.svg");
+    background-image: url("/icons/usa-icons/expand_less.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1rem 1rem;
@@ -2895,8 +2895,8 @@ input[type=search] {
     .usa-nav__primary button[aria-expanded=true] span::after {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/expand_less.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/expand_less.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/expand_less.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/expand_less.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -3143,7 +3143,7 @@ input[type=search] {
 }
 @media (forced-colors: active) {
   .usa-nav__close::before {
-    background-image: url("../img/usa-icons/close.svg");
+    background-image: url("/icons/usa-icons/close.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.25rem 1.25rem;
@@ -3155,8 +3155,8 @@ input[type=search] {
     .usa-nav__close::before {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/close.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/close.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/close.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/close.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
