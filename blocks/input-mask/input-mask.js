@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/input-mask/
  */
 
-import inputMask from '@uswds/uswds/js/usa-input-mask';
+import inputMask from '/libs/uswds/usa-input-mask.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

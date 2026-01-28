@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/file-input/
  */
 
-import fileInput from '@uswds/uswds/js/usa-file-input';
+import fileInput from '/libs/uswds/usa-file-input.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

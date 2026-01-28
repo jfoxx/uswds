@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/validation/
  */
 
-import validation from '@uswds/uswds/js/usa-validation';
+import validation from '/libs/uswds/usa-validation.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

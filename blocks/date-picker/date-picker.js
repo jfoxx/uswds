@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/date-picker/
  */
 
-import datePicker from '@uswds/uswds/js/usa-date-picker';
+import datePicker from '/libs/uswds/usa-date-picker.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

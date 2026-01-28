@@ -285,7 +285,7 @@ function generateComponentJSWithUSWDS(uswdsName, blockName) {
  * @see https://designsystem.digital.gov/components/${uswdsName.replace('usa-', '')}/
  */
 
-import ${camelCase(uswdsName)} from '@uswds/uswds/js/${uswdsName}';
+import ${camelCase(uswdsName)} from '/libs/uswds/${uswdsName}.js';
 
 export default function decorate(block) {
   // Initialize USWDS component
@@ -424,6 +424,7 @@ async function copyAssets() {
   await copyFonts();
   await copyIcons();
   await copyImages();
+  await copyJavaScript();
 
   log.success('Assets copied');
 }
@@ -522,6 +523,21 @@ async function copyImages() {
     await fs.copy(srcPath, destPath);
     log.verbose(`    Copied ${image}`);
   }
+}
+
+/**
+ * Copy USWDS JavaScript files
+ */
+async function copyJavaScript() {
+  log.verbose('  Copying JavaScript files...');
+
+  const uswdsJsPath = path.join(config.uswds.packagePath, 'dist', 'js');
+  const outputJsPath = './libs/uswds';
+
+  await fs.ensureDir(outputJsPath);
+  await fs.copy(uswdsJsPath, outputJsPath);
+
+  log.verbose('    Copied USWDS JavaScript modules');
 }
 
 /**

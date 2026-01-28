@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/search/
  */
 
-import search from '@uswds/uswds/js/usa-search';
+import search from '/libs/uswds/usa-search.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

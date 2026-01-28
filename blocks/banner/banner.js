@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/banner/
  */
 
-import banner from '@uswds/uswds/js/usa-banner';
+import banner from '/libs/uswds/usa-banner.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

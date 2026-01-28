@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/table/
  */
 
-import table from '@uswds/uswds/js/usa-table';
+import table from '/libs/uswds/usa-table.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

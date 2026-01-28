@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/character-count/
  */
 
-import characterCount from '@uswds/uswds/js/usa-character-count';
+import characterCount from '/libs/uswds/usa-character-count.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

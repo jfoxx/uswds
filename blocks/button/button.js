@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/button/
  */
 
-import button from '@uswds/uswds/js/usa-button';
+import button from '/libs/uswds/usa-button.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

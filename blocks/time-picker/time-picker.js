@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/time-picker/
  */
 
-import timePicker from '@uswds/uswds/js/usa-time-picker';
+import timePicker from '/libs/uswds/usa-time-picker.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

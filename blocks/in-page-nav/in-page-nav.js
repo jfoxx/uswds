@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/in-page-navigation/
  */
 
-import inPageNavigation from '@uswds/uswds/js/usa-in-page-navigation';
+import inPageNavigation from '/libs/uswds/usa-in-page-navigation.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

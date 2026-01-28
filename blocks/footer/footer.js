@@ -1,20 +1,31 @@
 /**
  * footer block
- * Based on USWDS usa-footer component
+ * Based on USWDS usa-footer component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/footer/
  */
 
-import footer from '@uswds/uswds/js/usa-footer';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
-export default function decorate(block) {
-  // Initialize USWDS component
-  footer.on(block);
+/**
+ * loads and decorates the footer
+ * @param {Element} block The footer block element
+ */
+export default async function decorate(block) {
+  // Load footer content as fragment from /nav/footer
+  const footerMeta = getMetadata('footer');
+  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/nav/footer';
+  const fragment = await loadFragment(footerPath);
 
-  // Optional: Add EDS-specific enhancements here
+  // Clear block and add fragment content
+  block.textContent = '';
+  if (fragment) {
+    while (fragment.firstElementChild) {
+      block.append(fragment.firstElementChild);
+    }
+  }
 
-  // Return cleanup function
-  return () => {
-    footer.off(block);
-  };
+  // USWDS footer uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

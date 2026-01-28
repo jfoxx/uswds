@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/accordion/
  */
 
-import accordion from '@uswds/uswds/js/usa-accordion';
+import accordion from '/libs/uswds/usa-accordion.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

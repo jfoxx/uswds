@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/tooltip/
  */
 
-import tooltip from '@uswds/uswds/js/usa-tooltip';
+import tooltip from '/libs/uswds/usa-tooltip.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

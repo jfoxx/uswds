@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/combo-box/
  */
 
-import comboBox from '@uswds/uswds/js/usa-combo-box';
+import comboBox from '/libs/uswds/usa-combo-box.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

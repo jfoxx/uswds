@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/date-range-picker/
  */
 
-import dateRangePicker from '@uswds/uswds/js/usa-date-range-picker';
+import dateRangePicker from '/libs/uswds/usa-date-range-picker.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

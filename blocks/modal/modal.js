@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/modal/
  */
 
-import modal from '@uswds/uswds/js/usa-modal';
+import modal from '/libs/uswds/usa-modal.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

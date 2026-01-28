@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/range/
  */
 
-import range from '@uswds/uswds/js/usa-range';
+import range from '/libs/uswds/usa-range.js';
 
 export default function decorate(block) {
   // Initialize USWDS component

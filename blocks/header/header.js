@@ -1,20 +1,31 @@
 /**
  * header block
- * Based on USWDS usa-header component
+ * Based on USWDS usa-header component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/header/
  */
 
-import header from '@uswds/uswds/js/usa-header';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
-export default function decorate(block) {
-  // Initialize USWDS component
-  header.on(block);
+/**
+ * loads and decorates the header
+ * @param {Element} block The header block element
+ */
+export default async function decorate(block) {
+  // Load nav content as fragment from /nav/header
+  const navMeta = getMetadata('nav');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav/header';
+  const fragment = await loadFragment(navPath);
 
-  // Optional: Add EDS-specific enhancements here
+  // Clear block and add fragment content
+  block.textContent = '';
+  if (fragment) {
+    while (fragment.firstElementChild) {
+      block.append(fragment.firstElementChild);
+    }
+  }
 
-  // Return cleanup function
-  return () => {
-    header.off(block);
-  };
+  // USWDS header uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

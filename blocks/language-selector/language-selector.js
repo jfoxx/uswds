@@ -5,7 +5,7 @@
  * @see https://designsystem.digital.gov/components/language-selector/
  */
 
-import languageSelector from '@uswds/uswds/js/usa-language-selector';
+import languageSelector from '/libs/uswds/usa-language-selector.js';
 
 export default function decorate(block) {
   // Initialize USWDS component
