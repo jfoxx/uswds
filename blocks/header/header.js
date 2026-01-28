@@ -140,16 +140,7 @@ async function decorateNav(header, fragment) {
           li.appendChild(button);
           li.appendChild(submenuUl);
 
-          // Add click handler for accordion
-          button.addEventListener('click', () => {
-            const expanded = button.getAttribute('aria-expanded') === 'true';
-            button.setAttribute('aria-expanded', !expanded);
-            if (expanded) {
-              submenuUl.setAttribute('hidden', '');
-            } else {
-              submenuUl.removeAttribute('hidden');
-            }
-          });
+          // Note: USWDS JavaScript handles accordion interactions automatically
         } else if (link) {
           // Simple link item
           const navLink = document.createElement('a');
@@ -200,16 +191,9 @@ async function decorateNav(header, fragment) {
     console.warn('No tools section found');
   }
 
-  // Add mobile menu toggle functionality
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('is-visible');
-    menuBtn.classList.toggle('is-visible');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    nav.classList.remove('is-visible');
-    menuBtn.classList.remove('is-visible');
-  });
+  // Note: USWDS JavaScript handles all menu interactions automatically
+  // including: mobile menu toggle, accordion dropdowns, click-outside,
+  // escape key, and keyboard navigation
 
   // Assemble header structure (with or without container wrapper)
   if (navContainer) {
