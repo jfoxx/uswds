@@ -1,20 +1,11 @@
 /**
  * banner block
- * Based on USWDS usa-banner component
+ * Based on USWDS usa-banner component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/banner/
  */
 
-import banner from '/libs/uswds/usa-banner.js';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  banner.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    banner.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-banner uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

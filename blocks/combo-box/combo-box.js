@@ -1,20 +1,11 @@
 /**
  * combo-box block
- * Based on USWDS usa-combo-box component
+ * Based on USWDS usa-combo-box component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/combo-box/
  */
 
-import comboBox from '/libs/uswds/usa-combo-box.js';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  comboBox.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    comboBox.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-combo-box uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

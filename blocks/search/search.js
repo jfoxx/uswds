@@ -1,20 +1,11 @@
 /**
  * search block
- * Based on USWDS usa-search component
+ * Based on USWDS usa-search component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/search/
  */
 
-import search from '/libs/uswds/usa-search.js';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  search.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    search.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-search uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

@@ -280,23 +280,14 @@ async function buildComponentJS(uswdsName, blockName, blockDir) {
 function generateComponentJSWithUSWDS(uswdsName, blockName) {
   return `/**
  * ${blockName} block
- * Based on USWDS ${uswdsName} component
+ * Based on USWDS ${uswdsName} component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/${uswdsName.replace('usa-', '')}/
  */
 
-import ${camelCase(uswdsName)} from '/libs/uswds/${uswdsName}.js';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  ${camelCase(uswdsName)}.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    ${camelCase(uswdsName)}.off(block);
-  };
+export default function decorate() {
+  // USWDS ${uswdsName} uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }
 `;
 }
@@ -765,15 +756,6 @@ Review the errors above and:
 `;
 
   await fs.writeFile('LINT-REPORT.md', report);
-}
-
-/**
- * Utility: Convert to camelCase
- */
-function camelCase(str) {
-  return str
-    .replace(/usa-/g, '')
-    .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
 }
 
 /**

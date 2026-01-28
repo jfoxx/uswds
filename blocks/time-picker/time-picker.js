@@ -1,20 +1,11 @@
 /**
  * time-picker block
- * Based on USWDS usa-time-picker component
+ * Based on USWDS usa-time-picker component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/time-picker/
  */
 
-import timePicker from '/libs/uswds/usa-time-picker.js';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  timePicker.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    timePicker.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-time-picker uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }
