@@ -1,6 +1,6 @@
 /**
  * USWDS Configuration for EDS Integration
- * 
+ *
  * This configuration file controls how USWDS components are built
  * and integrated into the EDS block structure.
  */
@@ -27,28 +27,28 @@ module.exports = {
     // Asset paths (relative to compiled CSS files)
     fontPath: '../fonts',
     imagePath: '../images',
-    
+
     // Typography
     typographyBaseFontSize: '16px',
     typographyBaseFontFamily: 'Public Sans Web',
     typographyHeadingFontFamily: 'Merriweather Web',
-    
+
     // Colors (can override USWDS defaults)
     // primary: 'blue-60v',
     // secondary: 'red-50v',
     // accent: 'cyan-30v',
-    
+
     // Spacing
     siteMaxWidth: 'desktop',
     siteMargins: '4',
     siteMarginsBreakpoint: 'desktop',
-    
+
     // Grid
     gridContainerMaxWidth: 'desktop',
-    
+
     // Banner (government sites)
     bannerBackgroundColor: 'base-lightest',
-    
+
     // Focus
     focusColor: 'blue-40v',
     focusWidth: '0.25rem',
@@ -63,13 +63,13 @@ module.exports = {
     'usa-link': 'link',
     'usa-icon': 'icon',
     'usa-tag': 'tag',
-    
+
     // Layout components
     'usa-accordion': 'accordion',
     'usa-card': 'cards',
     'usa-collection': 'collection',
     'usa-table': 'table',
-    
+
     // Navigation components
     'usa-header': 'header',
     'usa-footer': 'footer',
@@ -79,7 +79,7 @@ module.exports = {
     'usa-sidenav': 'side-nav',
     'usa-in-page-navigation': 'in-page-nav',
     'usa-step-indicator': 'step-indicator',
-    
+
     // Form components
     'usa-form': 'form',
     'usa-input': 'text-input',
@@ -103,7 +103,7 @@ module.exports = {
     'usa-label': 'label',
     'usa-error-message': 'error-message',
     'usa-hint': 'hint',
-    
+
     // Content components
     'usa-alert': 'alert',
     'usa-banner': 'banner',
@@ -116,7 +116,7 @@ module.exports = {
     'usa-summary-box': 'summary-box',
     'usa-tooltip': 'tooltip',
     'usa-graphic-list': 'graphic-list',
-    
+
     // Specialized components
     'usa-identifier': 'identifier',
     'usa-language-selector': 'language-selector',
@@ -138,7 +138,7 @@ module.exports = {
       'utilities',
       'focus',
     ],
-    
+
     // Utility classes to include
     utilities: {
       // Include all utilities (larger file) or specific ones
@@ -184,21 +184,24 @@ module.exports = {
   build: {
     // Clean output directories before build
     clean: false,
-    
+
     // Verbose output
     verbose: true,
-    
+
     // Generate source maps
     sourceMaps: true,
-    
+
     // Minify CSS
     minify: false, // Set to true for production
-    
+
     // Generate component documentation
     generateDocs: true,
-    
+
     // Copy USWDS examples
     copyExamples: false,
+
+    // Run linting after build
+    runLinting: true,
   },
 
   // Asset handling
@@ -213,7 +216,7 @@ module.exports = {
       ],
       formats: ['woff2', 'woff'], // Only copy these formats
     },
-    
+
     icons: {
       // Copy all USWDS icons
       copyAll: true,
@@ -222,7 +225,7 @@ module.exports = {
       // Generate sprite
       generateSprite: true,
     },
-    
+
     images: {
       // Copy USWDS images
       copy: true,
@@ -242,15 +245,15 @@ module.exports = {
   testing: {
     // Run visual regression tests after build
     visualRegression: false,
-    
+
     // Run accessibility tests
     a11y: false,
-    
+
     // Check CSS size
     checkBundleSize: true,
     maxBundleSize: {
       core: 150 * 1024, // 150KB for core CSS
-      block: 30 * 1024,  // 30KB per block CSS
+      block: 30 * 1024, // 30KB per block CSS
     },
   },
 
@@ -258,10 +261,10 @@ module.exports = {
   docs: {
     // Generate README for each block
     generateBlockReadmes: true,
-    
+
     // Include USWDS documentation links
     includeUswdsLinks: true,
-    
+
     // Generate usage examples
     generateExamples: true,
   },
