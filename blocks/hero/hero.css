@@ -3113,7 +3113,8 @@ through all possible variants
   font-family: Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
   font-size: 1.06rem;
   line-height: 1.5;
-  background-image: url("/icons/hero.jpg");
+  /* Default background image removed - use authored images via picture element instead */
+  /* background-image: url("/icons/hero.jpg"); */
   background-position: center;
   background-size: cover;
   color: white;

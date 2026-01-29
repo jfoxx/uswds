@@ -77,8 +77,8 @@ The hero block expects content in the following order:
 
 ## Customization
 
-### Default Background
-If no image is provided, the hero uses the default USWDS hero background image set in the CSS (`/icons/hero.jpg`).
+### Background Images
+Always provide a background image via the authored content (using a picture element). The default USWDS background image reference has been removed to prevent 404 errors.
 
 ### Callout Position
 By default, the callout box appears on the left side of the hero. This is controlled by USWDS CSS and adjusts responsively.

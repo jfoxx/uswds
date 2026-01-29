@@ -14,13 +14,8 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} fragment The loaded fragment
  */
 async function decorateNav(header, fragment) {
-  // eslint-disable-next-line no-console
-  console.log('Fragment sections:', fragment.querySelectorAll(':scope > div').length, fragment.querySelectorAll(':scope > div'));
-
   const sections = fragment.querySelectorAll(':scope > div');
   const [brandSection, navSection, toolsSection] = sections;
-  // eslint-disable-next-line no-console
-  console.log('Brand:', brandSection, 'Nav:', navSection, 'Tools:', toolsSection);
 
   // Apply header variant from metadata (supports both 'header' and 'header-variant')
   const variant = getMetadata('header') || getMetadata('header-variant') || 'basic';
@@ -197,19 +192,11 @@ async function decorateNav(header, fragment) {
 
   // Add search block if present in tools section
   if (toolsSection) {
-    // eslint-disable-next-line no-console
-    console.log('Tools section found:', toolsSection);
     const searchBlock = toolsSection.querySelector('.search');
-    // eslint-disable-next-line no-console
-    console.log('Search block found:', searchBlock);
     if (searchBlock) {
       // Decorate and load the search block
       decorateBlock(searchBlock);
-      // eslint-disable-next-line no-console
-      console.log('Search block after decorateBlock:', searchBlock);
       await loadBlock(searchBlock);
-      // eslint-disable-next-line no-console
-      console.log('Search block after loadBlock:', searchBlock);
 
       // Wrap search in a section with aria-label
       const searchSection = document.createElement('section');
@@ -222,15 +209,7 @@ async function decorateNav(header, fragment) {
       } else {
         nav.appendChild(searchSection);
       }
-      // eslint-disable-next-line no-console
-      console.log('Search section appended');
-    } else {
-      // eslint-disable-next-line no-console
-      console.warn('No search block found in tools section');
     }
-  } else {
-    // eslint-disable-next-line no-console
-    console.warn('No tools section found');
   }
 
   // Assemble nav structure based on variant
