@@ -6,7 +6,7 @@ This document explains how USWDS (United States Web Design System) is integrated
 
 ### The Challenge
 
-In EDS, content comes from Google Docs/Sheets and is rendered as plain HTML without custom classes on individual elements. Authors don't (and shouldn't have to) add classes to every heading, paragraph, and list item.
+In EDS, content comes from your document authoring platform and is rendered as plain HTML without custom classes on individual elements. Authors don't (and shouldn't have to) add classes to every heading, paragraph, and list item.
 
 ### The Solution: USWDS Prose Component
 
@@ -106,7 +106,7 @@ Protected via `.buildignore` to preserve custom overrides.
 
 ### Default Content (Prose)
 
-For running text, just write naturally in Google Docs:
+For running text, just write naturally in your documents:
 
 ```
 # Heading
@@ -116,6 +116,25 @@ Paragraph text with automatic USWDS styling.
 ```
 
 The `usa-prose` class handles all styling automatically.
+
+### Buttons
+
+Buttons are created using text formatting on standalone links. The formatting determines the USWDS button variant:
+
+| Formatting | Result |
+|------------|--------|
+| Plain or **Bold** | Primary button (blue) |
+| *Italic* | Secondary button (red) |
+| ***Bold + Italic*** | Accent Cool button (teal) |
+| **Bold** + Underline | Accent Warm button (orange) |
+| ~~Strikethrough~~ | Base button (dark gray) |
+| Underline | Outline button (blue border) |
+| *Italic* + Underline | Outline Secondary (red border) |
+| ***Bold + Italic*** + Underline | Big button (large) |
+
+**Important:** Only standalone links (links that are the only content in a paragraph) become buttons. Links inside regular text remain as regular links.
+
+See `BUTTON-AUTHORING.md` for detailed button authoring guidance.
 
 ### Component Blocks
 
@@ -158,7 +177,7 @@ See `USWDS-UPDATE-STRATEGY.md` for detailed update workflows.
 
 ## Key Benefits of This Pattern
 
-1. **Author-friendly**: Content creators use familiar Google Docs, no HTML/CSS knowledge required
+1. **Author-friendly**: Content creators use familiar document authoring tools, no HTML/CSS knowledge required
 2. **USWDS-compliant**: All components follow official USWDS markup and styling
 3. **Upgrade-safe**: Clear separation between custom EDS logic and USWDS generated code
 4. **Performance**: No build-time compilation, CSS/JS delivered directly to browser
