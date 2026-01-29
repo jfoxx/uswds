@@ -37,8 +37,8 @@ header.usa-header .header.block {
 
 /* Desktop responsive styles */
 @media (min-width: 64em) {
-  .usa-logo:has(.usa-logo__img) {
-    max-width: 45% !important;
+  .usa-logo {
+    max-width: 45%;
   }
 
   .usa-logo__img {

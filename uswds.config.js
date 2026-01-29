@@ -66,7 +66,7 @@ module.exports = {
 
     // Layout components
     'usa-accordion': 'accordion',
-    'usa-card': 'cards',
+    'usa-card': 'card',
     'usa-collection': 'collection',
     'usa-table': 'table',
     'usa-hero': 'hero',
