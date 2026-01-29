@@ -69,6 +69,7 @@ module.exports = {
     'usa-card': 'cards',
     'usa-collection': 'collection',
     'usa-table': 'table',
+    'usa-hero': 'hero',
 
     // Navigation components
     'usa-header': 'header',

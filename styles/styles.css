@@ -183,7 +183,7 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 40px 0; /* Remove side margins, let sections control their own padding */
 }
 
 input,
@@ -272,18 +272,18 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 64rem; /* Match USWDS grid-container max-width */
   margin: auto;
-  padding: 0 24px;
+  padding: 0 1rem; /* Match USWDS grid-container padding (16px) */
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
+@media (width >= 64em) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0 2rem; /* Match USWDS grid-container padding (32px) */
   }
 }
 
