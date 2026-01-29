@@ -36,10 +36,11 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav heights */
-  --nav-height: 64px;
+  /* nav heights - measured values for banner + header combined */
+  --banner-height: 46px; /* Mobile banner height */
+  --nav-height: 48px; /* Mobile header height */
   --breadcrumbs-height: 34px;
-  --header-height: var(--nav-height);
+  --header-height: calc(var(--banner-height) + var(--nav-height)); /* 94px total */
 }
 
 /* fallback fonts */
@@ -53,6 +54,15 @@
   font-family: roboto-fallback;
   size-adjust: 99.529%;
   src: local('Arial');
+}
+
+/* Tablet: banner collapses to single line */
+@media (width >= 640px) {
+  :root {
+    --banner-height: 18px; /* Tablet: single line banner */
+    --nav-height: 48px; /* Header stays same */
+    --header-height: calc(var(--banner-height) + var(--nav-height)); /* 66px total */
+  }
 }
 
 @media (width >= 900px) {
@@ -72,6 +82,21 @@
   }
 }
 
+/* Desktop: full header with nav items */
+@media (width >= 1025px) {
+  :root {
+    --banner-height: 42px; /* Desktop banner */
+    --nav-height: 120px; /* Extended header nav height */
+    --header-height: calc(var(--banner-height) + var(--nav-height)); /* 162px total */
+  }
+
+  /* Basic header variant is shorter */
+  body[data-header-variant="basic"] {
+    --nav-height: 98px; /* Basic header is shorter */
+    --header-height: calc(var(--banner-height) + var(--nav-height)); /* 140px total */
+  }
+}
+
 body {
   display: none;
   margin: 0;
@@ -86,8 +111,15 @@ body.appear {
   display: block;
 }
 
+/* Reserve total space for banner + header combined */
 header {
-  height: var(--header-height);
+  /* Height is just for the nav portion, not including banner */
+  height: var(--nav-height);
+}
+
+/* Banner sits above header as sibling, reserve its space */
+.banner.block {
+  height: var(--banner-height);
 }
 
 header .header,
@@ -102,7 +134,7 @@ footer .footer[data-block-status="loaded"] {
 
 @media (width >= 900px) {
   body[data-breadcrumbs] {
-    --header-height: calc(var(--nav-height) + var(--breadcrumbs-height));
+    --header-height: calc(var(--banner-height) + var(--nav-height) + var(--breadcrumbs-height));
   }
 }
 

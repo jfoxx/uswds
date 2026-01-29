@@ -141,6 +141,11 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  // Set header variant for CSS height calculation (prevents CLS)
+  const headerVariant = getMetadata('header') || getMetadata('header-variant') || 'basic';
+  doc.body.dataset.headerVariant = headerVariant;
+
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }

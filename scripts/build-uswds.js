@@ -523,6 +523,23 @@ async function copyIcons() {
         log.verbose('    Copied sprite.svg');
       }
     }
+
+    // Copy banner-specific assets
+    const bannerAssets = [
+      'us_flag_small.png',
+      'icon-dot-gov.svg',
+      'icon-https.svg',
+    ];
+
+    for (const asset of bannerAssets) {
+      const assetSrc = path.join(uswdsImgPath, asset);
+      const assetDest = path.join(outputIconsPath, asset);
+
+      if (await fs.pathExists(assetSrc)) {
+        await fs.copy(assetSrc, assetDest);
+        log.verbose(`    Copied banner asset: ${asset}`);
+      }
+    }
   }
 }
 

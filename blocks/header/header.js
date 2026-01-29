@@ -24,7 +24,10 @@ async function decorateNav(header, fragment) {
 
   // Apply header variant from metadata (supports both 'header' and 'header-variant')
   const variant = getMetadata('header') || getMetadata('header-variant') || 'basic';
-  const usaHeader = document.createElement('header');
+
+  // Use the parent <header> element instead of creating a new one
+  // EDS auto-blocks create a <header> wrapper, we just add USWDS classes to it
+  const usaHeader = header.parentElement;
   usaHeader.className = `usa-header usa-header--${variant}`;
 
   // Create nav-container wrapper (for basic/megamenu variants only)
@@ -249,19 +252,20 @@ async function decorateNav(header, fragment) {
   // including: mobile menu toggle, accordion dropdowns, click-outside,
   // escape key, and keyboard navigation
 
+  // Clear the block content (EDS adds a default wrapper)
+  header.textContent = '';
+
   // Assemble final header structure
   if (navContainer) {
     // Basic/megamenu variants: use nav-container wrapper
     navContainer.appendChild(navbar);
     navContainer.appendChild(nav);
-    usaHeader.appendChild(navContainer);
+    header.appendChild(navContainer);
   } else {
-    // Extended variant: add navbar and nav directly to header
-    usaHeader.appendChild(navbar);
-    usaHeader.appendChild(nav);
+    // Extended variant: add navbar and nav directly to block
+    header.appendChild(navbar);
+    header.appendChild(nav);
   }
-
-  header.appendChild(usaHeader);
 }
 
 /**
@@ -269,6 +273,20 @@ async function decorateNav(header, fragment) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  // Automatically add banner above header (USWDS pattern)
+  // The banner should be a sibling to the <header> element, not inside it
+  const headerElement = block.parentElement; // This is the <header> tag
+  const bannerBlock = document.createElement('div');
+  bannerBlock.className = 'banner block';
+  bannerBlock.setAttribute('data-block-name', 'banner');
+
+  // Insert banner before the <header> element in the DOM
+  headerElement.parentElement.insertBefore(bannerBlock, headerElement);
+
+  // Now decorate and load the banner block
+  decorateBlock(bannerBlock);
+  await loadBlock(bannerBlock);
+
   // Load the nav content from fragment
   const navPath = getMetadata('nav') || '/nav/header';
   const fragment = await loadFragment(navPath);

@@ -1,3 +1,19 @@
+/**
+ * EDS Override styles for USWDS Header
+ * These styles override default EDS header behavior to work with USWDS
+ */
+
+/* Remove EDS fixed height from header element */
+header.usa-header {
+  height: auto;
+  min-height: unset;
+}
+
+/* Hide the inner .header block wrapper since USWDS manages structure */
+header.usa-header .header.block {
+  display: contents;
+}
+
 /*
 * * * * * ==============================
 * * * * * ==============================

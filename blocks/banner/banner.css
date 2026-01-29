@@ -2140,3 +2140,13 @@ through all possible variants
   left: -999em;
   right: auto;
 }
+
+/**
+ * Custom overrides to fix mobile banner button hover issue
+ */
+@media all and (max-width: 39.99em) {
+  .usa-banner__button:hover,
+  .usa-banner__button:focus {
+    background-color: transparent !important;
+  }
+}
