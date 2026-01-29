@@ -11,10 +11,12 @@
  * 5. Creates component documentation
  *
  * Usage:
- *   npm run build:uswds                  # Build all components
+ *   npm run build:uswds                        # Build all components
  *   npm run build:uswds -- --component=button  # Build single component
- *   npm run build:uswds -- --clean      # Clean and rebuild
- *   npm run build:uswds -- --watch      # Watch for changes
+ *   npm run build:uswds -- --clean             # Clean and rebuild
+ *   npm run build:uswds -- --watch             # Watch for changes
+ *   npm run build:uswds -- --force             # Bypass .buildignore protection
+ *   npm run build:uswds -- --force --component=card  # Force rebuild single component
  */
 
 const fs = require('fs-extra');
@@ -36,6 +38,7 @@ const options = {
   verbose: args.includes('--verbose') || config.build.verbose,
   component: args.find((arg) => arg.startsWith('--component='))?.split('=')[1],
   minify: args.includes('--minify') || config.build.minify,
+  force: args.includes('--force'), // Bypass .buildignore protection
 };
 
 // Logging utilities (using ANSI color codes)
@@ -232,9 +235,12 @@ async function buildComponent(blockName, uswdsName) {
     });
   }
 
-  if (skipJS) {
+  if (skipJS && !options.force) {
     log.verbose(`  Skipping ${blockName}.js (protected by .buildignore)`);
   } else {
+    if (options.force && skipJS) {
+      log.warn(`  Force regenerating ${blockName}.js (overriding .buildignore)`);
+    }
     await buildComponentJS(uswdsName, blockName, blockDir);
   }
 
@@ -251,6 +257,38 @@ async function buildComponent(blockName, uswdsName) {
  */
 async function buildComponentCSS(uswdsName, blockName, blockDir) {
   log.verbose(`  Compiling CSS for ${blockName}...`);
+
+  // Check .buildignore for CSS files (unless --force flag is used)
+  const cssPath = `blocks/${blockName}/${blockName}.css`;
+  const buildIgnorePath = path.join(process.cwd(), '.buildignore');
+  let skipCSS = false;
+
+  if (!options.force && await fs.pathExists(buildIgnorePath)) {
+    const ignoreContent = await fs.readFile(buildIgnorePath, 'utf-8');
+    const ignorePatterns = ignoreContent
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'));
+
+    // Support glob patterns like blocks/**/*.css
+    skipCSS = ignorePatterns.some((pattern) => {
+      if (pattern.includes('**')) {
+        // Simple glob matching for **
+        const regex = new RegExp(pattern.replace(/\*\*/g, '.*').replace(/\*/g, '[^/]*'));
+        return regex.test(cssPath);
+      }
+      return cssPath.includes(pattern);
+    });
+  }
+
+  if (skipCSS) {
+    log.verbose(`  Skipping ${blockName}.css (protected by .buildignore)`);
+    return;
+  }
+
+  if (options.force && await fs.pathExists(path.join(blockDir, `${blockName}.css`))) {
+    log.warn(`  Force regenerating ${blockName}.css (overriding .buildignore)`);
+  }
 
   // Generate component Sass
   const componentScss = `
