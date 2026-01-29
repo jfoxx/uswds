@@ -1,3 +1,13 @@
+/**
+ * EDS Override styles for USWDS Footer
+ * These styles override default EDS footer behavior to work with USWDS
+ */
+
+/* Hide the inner .footer block wrapper since USWDS manages structure */
+footer.usa-footer .footer.block {
+  display: contents;
+}
+
 /*
 * * * * * ==============================
 * * * * * ==============================
