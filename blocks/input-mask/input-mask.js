@@ -1,20 +1,11 @@
 /**
  * input-mask block
- * Based on USWDS usa-input-mask component
+ * Based on USWDS usa-input-mask component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/input-mask/
  */
 
-import inputMask from '@uswds/uswds/js/usa-input-mask';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  inputMask.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    inputMask.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-input-mask uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

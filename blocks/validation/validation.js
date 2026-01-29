@@ -1,20 +1,11 @@
 /**
  * validation block
- * Based on USWDS usa-validation component
+ * Based on USWDS usa-validation component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/validation/
  */
 
-import validation from '@uswds/uswds/js/usa-validation';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  validation.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    validation.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-validation uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

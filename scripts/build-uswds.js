@@ -209,8 +209,34 @@ async function buildComponent(blockName, uswdsName) {
   // Build CSS
   await buildComponentCSS(uswdsName, blockName, blockDir);
 
-  // Build JavaScript
-  await buildComponentJS(uswdsName, blockName, blockDir);
+  // Build JavaScript (check .buildignore)
+  // EDS Pattern: All block JS files should be custom decorators
+  const jsPath = `blocks/${blockName}/${blockName}.js`;
+  const buildIgnorePath = path.join(process.cwd(), '.buildignore');
+  let skipJS = false;
+  if (await fs.pathExists(buildIgnorePath)) {
+    const ignoreContent = await fs.readFile(buildIgnorePath, 'utf-8');
+    const ignorePatterns = ignoreContent
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'));
+
+    // Support glob patterns like blocks/**/*.js
+    skipJS = ignorePatterns.some((pattern) => {
+      if (pattern.includes('**')) {
+        // Simple glob matching for **
+        const regex = new RegExp(pattern.replace(/\*\*/g, '.*').replace(/\*/g, '[^/]*'));
+        return regex.test(jsPath);
+      }
+      return jsPath.includes(pattern);
+    });
+  }
+
+  if (skipJS) {
+    log.verbose(`  Skipping ${blockName}.js (protected by .buildignore)`);
+  } else {
+    await buildComponentJS(uswdsName, blockName, blockDir);
+  }
 
   // Create README
   if (config.docs.generateBlockReadmes) {
@@ -280,23 +306,14 @@ async function buildComponentJS(uswdsName, blockName, blockDir) {
 function generateComponentJSWithUSWDS(uswdsName, blockName) {
   return `/**
  * ${blockName} block
- * Based on USWDS ${uswdsName} component
+ * Based on USWDS ${uswdsName} component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/${uswdsName.replace('usa-', '')}/
  */
 
-import ${camelCase(uswdsName)} from '@uswds/uswds/js/${uswdsName}';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  ${camelCase(uswdsName)}.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    ${camelCase(uswdsName)}.off(block);
-  };
+export default function decorate() {
+  // USWDS ${uswdsName} uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }
 `;
 }
@@ -395,9 +412,29 @@ async function compileSass(sassContent, outputPath) {
       sourceMap: config.build.sourceMaps,
     });
 
-    // Post-process with autoprefixer
+    // Post-process with autoprefixer and URL rewriting
     const processed = await postcss([
       autoprefixer(config.postcss.autoprefixer),
+      // Rewrite relative URLs to absolute paths
+      {
+        postcssPlugin: 'rewrite-urls',
+        Once(root) {
+          root.walkDecls((decl) => {
+            if (decl.value.includes('url(')) {
+              // Rewrite ../fonts/ to /fonts/ (preserve proper quote syntax)
+              decl.value = decl.value.replace(
+                /url\(["']?\.\.\/fonts\/([^)"']+)(["']?)\)/g,
+                (match, filepath) => `url("/fonts/${filepath}")`,
+              );
+              // Rewrite ../img/ to /icons/ (preserve proper quote syntax)
+              decl.value = decl.value.replace(
+                /url\(["']?\.\.\/img\/([^)"']+)(["']?)\)/g,
+                (match, filepath) => `url("/icons/${filepath}")`,
+              );
+            }
+          });
+        },
+      },
     ]).process(result.css, {
       from: undefined,
       to: outputPath,
@@ -424,6 +461,7 @@ async function copyAssets() {
   await copyFonts();
   await copyIcons();
   await copyImages();
+  await copyJavaScript();
 
   log.success('Assets copied');
 }
@@ -485,6 +523,23 @@ async function copyIcons() {
         log.verbose('    Copied sprite.svg');
       }
     }
+
+    // Copy banner-specific assets
+    const bannerAssets = [
+      'us_flag_small.png',
+      'icon-dot-gov.svg',
+      'icon-https.svg',
+    ];
+
+    for (const asset of bannerAssets) {
+      const assetSrc = path.join(uswdsImgPath, asset);
+      const assetDest = path.join(outputIconsPath, asset);
+
+      if (await fs.pathExists(assetSrc)) {
+        await fs.copy(assetSrc, assetDest);
+        log.verbose(`    Copied banner asset: ${asset}`);
+      }
+    }
   }
 }
 
@@ -522,6 +577,21 @@ async function copyImages() {
     await fs.copy(srcPath, destPath);
     log.verbose(`    Copied ${image}`);
   }
+}
+
+/**
+ * Copy USWDS JavaScript files
+ */
+async function copyJavaScript() {
+  log.verbose('  Copying JavaScript files...');
+
+  const uswdsJsPath = path.join(config.uswds.packagePath, 'dist', 'js');
+  const outputJsPath = './libs/uswds';
+
+  await fs.ensureDir(outputJsPath);
+  await fs.copy(uswdsJsPath, outputJsPath);
+
+  log.verbose('    Copied USWDS JavaScript modules');
 }
 
 /**
@@ -749,15 +819,6 @@ Review the errors above and:
 `;
 
   await fs.writeFile('LINT-REPORT.md', report);
-}
-
-/**
- * Utility: Convert to camelCase
- */
-function camelCase(str) {
-  return str
-    .replace(/usa-/g, '')
-    .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
 }
 
 /**

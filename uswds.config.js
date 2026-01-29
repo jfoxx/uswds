@@ -24,9 +24,9 @@ module.exports = {
 
   // USWDS theme settings (passed to Sass)
   theme: {
-    // Asset paths (relative to compiled CSS files)
-    fontPath: '../fonts',
-    imagePath: '../images',
+    // Asset paths (absolute from root to support blocks in subdirectories)
+    fontPath: '/fonts',
+    imagePath: '/icons',
 
     // Typography
     typographyBaseFontSize: '16px',
@@ -69,6 +69,7 @@ module.exports = {
     'usa-card': 'cards',
     'usa-collection': 'collection',
     'usa-table': 'table',
+    'usa-hero': 'hero',
 
     // Navigation components
     'usa-header': 'header',
@@ -221,7 +222,7 @@ module.exports = {
       // Copy all USWDS icons
       copyAll: true,
       // Or specify specific icon sets
-      sets: ['usa-icons', 'uswds-icons'],
+      sets: ['usa-icons', 'usa-icons-bg', 'uswds-icons'],
       // Generate sprite
       generateSprite: true,
     },

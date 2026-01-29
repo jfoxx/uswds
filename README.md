@@ -41,8 +41,12 @@ Visit `http://localhost:3000/test-uswds.html` to see USWDS components in action!
 
 ## 📚 Documentation
 
+### Core Guides
+- **[USWDS-EDS-PATTERN.md](./USWDS-EDS-PATTERN.md)** - ⭐ **START HERE** - Complete integration pattern and block development guide
+- **[QUICK-START.md](./QUICK-START.md)** - Quick reference for common tasks
+
+### Technical Details
 - **[INTEGRATION-SUMMARY.md](./INTEGRATION-SUMMARY.md)** - Executive overview
-- **[QUICK-START.md](./QUICK-START.md)** - Getting started guide
 - **[USWDS-INTEGRATION-PLAN.md](./USWDS-INTEGRATION-PLAN.md)** - Complete technical plan
 - **[ARCHITECTURE-DECISIONS.md](./ARCHITECTURE-DECISIONS.md)** - Design rationale
 - **[BUILD-STATUS.md](./BUILD-STATUS.md)** - Current build status

@@ -1,20 +1,11 @@
 /**
  * tooltip block
- * Based on USWDS usa-tooltip component
+ * Based on USWDS usa-tooltip component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/tooltip/
  */
 
-import tooltip from '@uswds/uswds/js/usa-tooltip';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  tooltip.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    tooltip.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-tooltip uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

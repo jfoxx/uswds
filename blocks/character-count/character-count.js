@@ -1,20 +1,11 @@
 /**
  * character-count block
- * Based on USWDS usa-character-count component
+ * Based on USWDS usa-character-count component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/character-count/
  */
 
-import characterCount from '@uswds/uswds/js/usa-character-count';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  characterCount.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    characterCount.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-character-count uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

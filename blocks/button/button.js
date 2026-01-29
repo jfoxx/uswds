@@ -1,20 +1,11 @@
 /**
  * button block
- * Based on USWDS usa-button component
+ * Based on USWDS usa-button component (CSS-only)
  *
  * @see https://designsystem.digital.gov/components/button/
  */
 
-import button from '@uswds/uswds/js/usa-button';
-
-export default function decorate(block) {
-  // Initialize USWDS component
-  button.on(block);
-
-  // Optional: Add EDS-specific enhancements here
-
-  // Return cleanup function
-  return () => {
-    button.off(block);
-  };
+export default function decorate() {
+  // USWDS usa-button uses CSS for styling
+  // JavaScript interactions can be added here as needed for EDS
 }

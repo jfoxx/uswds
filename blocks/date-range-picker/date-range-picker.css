@@ -1471,126 +1471,126 @@ through all possible variants
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-300.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-regular.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-700.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-300italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-300italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Roboto Mono Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/roboto-mono/roboto-mono-v5-latin-700italic.woff2) format("woff2");
+  src: url("/fonts/roboto-mono/roboto-mono-v5-latin-700italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-light-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-light-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans Pro Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2) format("woff2");
+  src: url("/fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Light.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Light.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Regular.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Bold.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 300;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-LightItalic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-LightItalic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 400;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-Italic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-Italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Merriweather Web";
   font-style: italic;
   font-weight: 700;
   font-display: fallback;
-  src: url(../fonts/merriweather/Latin-Merriweather-BoldItalic.woff2) format("woff2");
+  src: url("/fonts/merriweather/Latin-Merriweather-BoldItalic.woff2") format("woff2");
 }
 /* stylelint-enable */
 .usa-input:disabled, .usa-input[aria-disabled=true] {
@@ -1865,7 +1865,7 @@ through all possible variants
 }
 
 .usa-date-picker__button {
-  background-image: url("../img/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   align-self: stretch;
   background-color: transparent;
@@ -1876,7 +1876,7 @@ through all possible variants
 }
 @media (forced-colors: active) {
   .usa-date-picker__button {
-    background-image: url("../img/usa-icons/calendar_today.svg");
+    background-image: url("/icons/usa-icons/calendar_today.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -1888,8 +1888,8 @@ through all possible variants
     .usa-date-picker__button {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -1981,12 +1981,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__previous-year:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__previous-year:not([disabled]) {
-    background-image: url("../img/usa-icons/navigate_far_before.svg");
+    background-image: url("/icons/usa-icons/navigate_far_before.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -1998,8 +1998,8 @@ through all possible variants
     .usa-date-picker__calendar__previous-year:not([disabled]) {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2014,12 +2014,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__previous-month:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__previous-month:not([disabled]) {
-    background-image: url("../img/usa-icons/navigate_before.svg");
+    background-image: url("/icons/usa-icons/navigate_before.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -2031,8 +2031,8 @@ through all possible variants
     .usa-date-picker__calendar__previous-month:not([disabled]) {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2047,12 +2047,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__next-year:not([disabled]) {
-    background-image: url("../img/usa-icons/navigate_far_next.svg");
+    background-image: url("/icons/usa-icons/navigate_far_next.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -2064,8 +2064,8 @@ through all possible variants
     .usa-date-picker__calendar__next-year:not([disabled]) {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2080,12 +2080,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__next-month:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__next-month:not([disabled]) {
-    background-image: url("../img/usa-icons/navigate_next.svg");
+    background-image: url("/icons/usa-icons/navigate_next.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -2097,8 +2097,8 @@ through all possible variants
     .usa-date-picker__calendar__next-month:not([disabled]) {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2297,12 +2297,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__previous-year-chunk:not([disabled])::after {
-    background-image: url("../img/usa-icons/navigate_before.svg");
+    background-image: url("/icons/usa-icons/navigate_before.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -2314,8 +2314,8 @@ through all possible variants
     .usa-date-picker__calendar__previous-year-chunk:not([disabled])::after {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
@@ -2339,12 +2339,12 @@ through all possible variants
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]) {
-  background-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+  background-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
 @media (forced-colors: active) {
   .usa-date-picker__calendar__next-year-chunk:not([disabled])::after {
-    background-image: url("../img/usa-icons/navigate_next.svg");
+    background-image: url("/icons/usa-icons/navigate_next.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 2.5rem 2.5rem;
@@ -2356,8 +2356,8 @@ through all possible variants
     .usa-date-picker__calendar__next-year-chunk:not([disabled])::after {
       background: none;
       background-color: ButtonText;
-      -webkit-mask-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
-              mask-image: url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+      -webkit-mask-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+              mask-image: url("/icons/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
       -webkit-mask-position: center center;
               mask-position: center center;
       -webkit-mask-repeat: no-repeat;
