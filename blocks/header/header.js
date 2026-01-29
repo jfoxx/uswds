@@ -46,27 +46,58 @@ async function decorateNav(header, fragment) {
   if (brandSection) {
     const logoDiv = document.createElement('div');
     logoDiv.className = 'usa-logo';
-    const brandContent = brandSection.querySelector('a, p, picture, img');
-    if (brandContent) {
-      if (brandContent.tagName === 'A') {
-        const logoLink = document.createElement('a');
-        logoLink.href = brandContent.href;
-        logoLink.className = 'usa-logo__text';
-        logoLink.textContent = brandContent.textContent;
-        logoDiv.appendChild(logoLink);
-      } else if (brandContent.tagName === 'PICTURE' || brandContent.tagName === 'IMG') {
-        const logoLink = document.createElement('a');
-        logoLink.href = '/';
-        logoLink.appendChild(brandContent.cloneNode(true));
-        logoDiv.appendChild(logoLink);
+
+    // Check for image (logo)
+    const img = brandSection.querySelector('img');
+
+    // Check for text (brand name) - prioritize headings, skip image-only paragraphs
+    let textContent = '';
+    const headingEl = brandSection.querySelector('h1, h2, h3, h4, h5, h6');
+    if (headingEl) {
+      textContent = headingEl.textContent.trim();
+    } else {
+      // Try other text elements, but filter out ones that only contain images
+      const textElements = Array.from(brandSection.querySelectorAll('p, strong, em, span, a'));
+      const validTextEl = textElements.find((el) => {
+        const text = el.textContent.trim();
+        // Skip elements that are empty or only contain an image
+        return text && !el.querySelector('img, picture');
+      });
+
+      if (validTextEl) {
+        textContent = validTextEl.textContent.trim();
       } else {
-        const logoLink = document.createElement('a');
-        logoLink.href = '/';
-        logoLink.className = 'usa-logo__text';
-        logoLink.textContent = brandContent.textContent;
-        logoDiv.appendChild(logoLink);
+        // Final fallback: get text directly from the section, excluding images
+        const clone = brandSection.cloneNode(true);
+        const cloneImgs = clone.querySelectorAll('img, picture');
+        cloneImgs.forEach((imgEl) => imgEl.remove());
+        textContent = clone.textContent.trim();
       }
     }
+
+    // Build logo structure with image and/or text
+    if (img) {
+      // Logo with image
+      const imgLink = document.createElement('a');
+      imgLink.href = '/';
+      imgLink.title = textContent || 'Home';
+      const logoImg = document.createElement('img');
+      logoImg.className = 'usa-logo__img';
+      logoImg.src = img.src;
+      logoImg.alt = img.alt || textContent || '';
+      imgLink.appendChild(logoImg);
+      logoDiv.appendChild(imgLink);
+    }
+
+    if (textContent) {
+      // Logo text/brand name
+      const textLink = document.createElement('a');
+      textLink.href = '/';
+      textLink.className = 'usa-logo__text';
+      textLink.textContent = textContent;
+      logoDiv.appendChild(textLink);
+    }
+
     navbar.appendChild(logoDiv);
   }
 

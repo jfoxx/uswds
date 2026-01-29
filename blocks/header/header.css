@@ -14,6 +14,38 @@ header.usa-header .header.block {
   display: contents;
 }
 
+/* Logo with image and text */
+.usa-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.usa-logo__img {
+  max-width: 3rem;
+  height: auto;
+}
+
+/* Ensure both logo image and text link to home */
+.usa-logo a {
+  text-decoration: none;
+}
+
+.usa-logo a:hover {
+  text-decoration: underline;
+}
+
+/* Desktop responsive styles */
+@media (min-width: 64em) {
+  .usa-logo:has(.usa-logo__img) {
+    max-width: 45% !important;
+  }
+
+  .usa-logo__img {
+    max-width: 5.5rem;
+  }
+}
+
 /*
 * * * * * ==============================
 * * * * * ==============================
