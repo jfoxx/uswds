@@ -81,7 +81,7 @@ function decorateSections(main) {
         e.removeAttribute('class');
         if (!defaultContent) {
           const wrapper = document.createElement('div');
-          wrapper.classList.add('default-content-wrapper');
+          wrapper.classList.add('default-content-wrapper', 'usa-prose');
           wrappers.push(wrapper);
           defaultContent = true;
         }
@@ -89,7 +89,7 @@ function decorateSections(main) {
         const wrapper = document.createElement('div');
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV';
-        if (defaultContent) wrapper.classList.add('default-content-wrapper');
+        if (defaultContent) wrapper.classList.add('default-content-wrapper', 'usa-prose');
       }
       wrappers[wrappers.length - 1].append(e);
     });
