@@ -130,7 +130,10 @@ function decorateCard(block) {
       const link = child.querySelector('a');
       if (link) {
         const button = link.cloneNode(true);
-        button.className = 'usa-button';
+        // Preserve existing button classes if they exist, otherwise default to usa-button
+        if (!button.classList.contains('usa-button')) {
+          button.className = 'usa-button';
+        }
         footer.appendChild(button);
       }
 
