@@ -355,6 +355,17 @@ function wrapTextNodes(block) {
 
 /**
  * Decorates paragraphs containing a single link as buttons.
+ * Uses text formatting to determine USWDS button variants:
+ * - Plain link = Default primary (usa-button)
+ * - Bold = Default primary (usa-button)
+ * - Italic = Secondary (usa-button--secondary)
+ * - Bold + Italic = Accent Cool (usa-button--accent-cool)
+ * - Strikethrough = Base (usa-button--base)
+ * - Underline alone = Outline (usa-button--outline)
+ * - Bold + Underline = Accent Warm (usa-button--accent-warm)
+ * - Italic + Underline = Outline + Secondary (usa-button--outline usa-button--secondary)
+ * - Bold + Italic + Underline = Big button (usa-button--big)
+ *
  * @param {Element} element container element
  */
 function decorateButtons(element) {
@@ -362,29 +373,76 @@ function decorateButtons(element) {
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
       const up = a.parentElement;
-      const twoup = a.parentElement.parentElement;
+      const twoup = a.parentElement?.parentElement;
+      const threeup = twoup?.parentElement;
+
       if (!a.querySelector('img')) {
-        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
-          a.className = 'button'; // default
-          up.classList.add('button-container');
-        }
+        // Detect text formatting hierarchy
+        const hasStrong = up.tagName === 'STRONG';
+        const hasEm = up.tagName === 'EM';
+        const hasU = up.tagName === 'U';
+        const hasS = up.tagName === 'S' || up.tagName === 'DEL' || up.tagName === 'STRIKE';
+
+        // Check for nested formatting (e.g., <strong><em><a>)
+        const hasStrongTwoUp = twoup?.tagName === 'STRONG';
+        const hasEmTwoUp = twoup?.tagName === 'EM';
+        const hasUTwoUp = twoup?.tagName === 'U';
+
+        // Determine button classes based on formatting combinations
+        let buttonClasses = 'usa-button';
+        let container = null;
+
+        // Check if link is standalone in a paragraph
+        const isStandalone = (el) => el?.childNodes.length === 1 && (el?.tagName === 'P' || el?.tagName === 'DIV');
+
+        // Bold + Italic + Underline = Big button
         if (
-          up.childNodes.length === 1
-          && up.tagName === 'STRONG'
-          && twoup.childNodes.length === 1
-          && twoup.tagName === 'P'
+          ((hasStrong && hasEmTwoUp && hasUTwoUp) || (hasEm && hasStrongTwoUp && hasUTwoUp)
+          || (hasU && hasStrongTwoUp && hasEmTwoUp) || (hasU && hasEmTwoUp && hasStrongTwoUp)
+          || (hasStrong && hasUTwoUp && hasEmTwoUp) || (hasEm && hasUTwoUp && hasStrongTwoUp))
+          && isStandalone(threeup?.parentElement)
         ) {
-          a.className = 'button primary';
-          twoup.classList.add('button-container');
+          buttonClasses = 'usa-button usa-button--big';
+          container = threeup.parentElement;
+        } else if ( // Bold + Italic = Accent Cool
+          ((hasStrong && hasEmTwoUp) || (hasEm && hasStrongTwoUp))
+          && isStandalone(twoup?.parentElement)
+        ) {
+          buttonClasses = 'usa-button usa-button--accent-cool';
+          container = twoup.parentElement;
+        } else if ( // Bold + Underline = Accent Warm
+          ((hasStrong && hasUTwoUp) || (hasU && hasStrongTwoUp))
+          && isStandalone(twoup?.parentElement)
+        ) {
+          buttonClasses = 'usa-button usa-button--accent-warm';
+          container = twoup.parentElement;
+        } else if ( // Italic + Underline = Outline Secondary
+          ((hasEm && hasUTwoUp) || (hasU && hasEmTwoUp))
+          && isStandalone(twoup?.parentElement)
+        ) {
+          buttonClasses = 'usa-button usa-button--outline usa-button--secondary';
+          container = twoup.parentElement;
+        } else if (hasStrong && isStandalone(twoup)) { // Bold = Default primary (explicit)
+          buttonClasses = 'usa-button';
+          container = twoup;
+        } else if (hasEm && isStandalone(twoup)) { // Italic = Secondary
+          buttonClasses = 'usa-button usa-button--secondary';
+          container = twoup;
+        } else if (hasU && isStandalone(twoup)) { // Underline = Outline
+          buttonClasses = 'usa-button usa-button--outline';
+          container = twoup;
+        } else if (hasS && isStandalone(twoup)) { // Strikethrough = Base
+          buttonClasses = 'usa-button usa-button--base';
+          container = twoup;
+        } else if (isStandalone(up)) { // Plain link = Default primary
+          buttonClasses = 'usa-button';
+          container = up;
         }
-        if (
-          up.childNodes.length === 1
-          && up.tagName === 'EM'
-          && twoup.childNodes.length === 1
-          && twoup.tagName === 'P'
-        ) {
-          a.className = 'button secondary';
-          twoup.classList.add('button-container');
+
+        // Apply button classes if this is a button
+        if (container) {
+          a.className = buttonClasses;
+          container.classList.add('button-container');
         }
       }
     }

@@ -119,7 +119,8 @@ header {
 
 /* Banner sits above header as sibling, reserve its space */
 .banner.block {
-  height: var(--banner-height);
+  min-height: var(--banner-height);
+  /* Use min-height instead of height to allow banner to expand when opened */
 }
 
 header .header,
@@ -206,47 +207,19 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link,
-button {
-  box-sizing: border-box;
-  display: inline-block;
-  max-width: 100%;
-  margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
-  cursor: pointer;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* Button styling is handled by USWDS (usa-button classes) */
+/* Button containers provide proper spacing */
+.button-container {
+  margin: 1rem 0;
+  text-align: left;
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
+.button-container:first-child {
+  margin-top: 0;
 }
 
-button:disabled,
-button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
-}
-
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
+.button-container:last-child {
+  margin-bottom: 0;
 }
 
 main img {
