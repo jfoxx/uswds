@@ -15,6 +15,7 @@ blocks/**/*.js
 # 3. Re-add your custom EDS overrides at the TOP of the file
 # 4. Uncomment the protection below
 #
+blocks/alert/alert.css
 blocks/card/card.css
 blocks/header/header.css
 blocks/hero/hero.css
