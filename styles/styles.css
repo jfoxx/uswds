@@ -209,13 +209,14 @@ a:hover {
 /* buttons */
 /* Button styling is handled by USWDS (usa-button classes) */
 /* Override default link styles for buttons to ensure USWDS button colors work */
+/* Using !important to override any link color rules */
 a.usa-button:any-link,
 a.usa-button:visited,
 a.usa-button:hover,
 a.usa-button:focus,
 a.usa-button:active {
-  color: inherit; /* Let USWDS button classes control color */
-  text-decoration: none;
+  color: inherit !important; /* Let USWDS button classes control color */
+  text-decoration: none !important;
 }
 
 /* Ensure outline buttons also inherit their colors properly */
@@ -224,8 +225,8 @@ a.usa-button--outline:visited,
 a.usa-button--outline:hover,
 a.usa-button--outline:focus,
 a.usa-button--outline:active {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 /* Button containers provide proper spacing */

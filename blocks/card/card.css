@@ -39,17 +39,23 @@
 }
 
 /* Ensure buttons in card footers have proper colors */
-.usa-card__footer .usa-button {
-  color: white; /* Primary button text should be white */
+/* Using !important to override global link styles */
+.usa-card__footer a.usa-button:any-link,
+.usa-card__footer a.usa-button:visited {
+  color: white !important;
 }
 
-.usa-card__footer .usa-button:visited {
-  color: white;
+.usa-card__footer a.usa-button:hover,
+.usa-card__footer a.usa-button:focus,
+.usa-card__footer a.usa-button:active {
+  color: white !important;
 }
 
-.usa-card__footer .usa-button:hover,
-.usa-card__footer .usa-button:focus {
-  color: white;
+/* Support for outline and other button variants */
+.usa-card__footer a.usa-button--outline:any-link,
+.usa-card__footer a.usa-button--outline:visited,
+.usa-card__footer a.usa-button--outline:hover {
+  color: inherit !important; /* Let USWDS control outline button colors */
 }
 
 /* ===== USWDS GENERATED STYLES BELOW ===== */
