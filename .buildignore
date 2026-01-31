@@ -17,6 +17,7 @@ blocks/**/*.js
 #
 blocks/alert/alert.css
 blocks/card/card.css
+blocks/collection/collection.css
 blocks/header/header.css
 blocks/hero/hero.css
 blocks/banner/banner.css
