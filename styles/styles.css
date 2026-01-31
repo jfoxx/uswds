@@ -278,7 +278,9 @@ main > .section {
   margin: 40px 0;
 }
 
-main > .section > div {
+/* Default content container - constrained to USWDS grid max-width 
+   Exclude full-width blocks (hero, alert, banner) that need edge-to-edge layout */
+main > .section > div:not(.hero):not(.alert):not(.banner) {
   max-width: 64rem; /* Match USWDS grid-container max-width */
   margin: auto;
   padding: 0 1rem; /* Match USWDS grid-container padding (16px) */
@@ -289,7 +291,7 @@ main > .section:first-of-type {
 }
 
 @media (width >= 64em) {
-  main > .section > div {
+  main > .section > div:not(.hero):not(.alert):not(.banner) {
     padding: 0 2rem; /* Match USWDS grid-container padding (32px) */
   }
 }

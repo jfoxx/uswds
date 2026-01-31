@@ -113,7 +113,6 @@ module.exports = {
     'usa-modal': 'modal',
     'usa-process-list': 'process-list',
     'usa-prose': 'prose',
-    'usa-site-alert': 'site-alert',
     'usa-summary-box': 'summary-box',
     'usa-tooltip': 'tooltip',
     'usa-graphic-list': 'graphic-list',
