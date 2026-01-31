@@ -1,3 +1,12 @@
+/**
+ * EDS Override styles for USWDS Alert
+ * Hide the EDS block wrapper to let USWDS structure show through
+ */
+
+.alert.block {
+  display: contents;
+}
+
 /*
 * * * * * ==============================
 * * * * * ==============================
