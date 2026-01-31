@@ -2,6 +2,11 @@
 
 Universal Editor is Adobe's next-generation content editing experience that enables true in-context editing across any implementation. Universal Editor is particularly useful when you need a modern, flexible editing experience that can work across different content repositories and implementations.
 
+## 📚 Quick Links
+
+- **[→ USWDS Block Models Documentation](./UNIVERSAL-EDITOR-MODELS.md)** - Complete reference for all 35 USWDS block models
+- **[→ Universal Editor Official Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/field-types)** - Adobe's field types and configuration guide
+
 ## Prerequisites
 
 To use Universal Editor, you need:

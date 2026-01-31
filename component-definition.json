@@ -70,6 +70,59 @@
           }
         },
         {
+          "title": "Alert",
+          "id": "alert",
+          "plugins": {
+            "da": {
+              "name": "alert",
+              "rows": 3,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Banner",
+          "id": "banner",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"banner\"><div><div>An official website of the United States government</div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Breadcrumb",
+          "id": "breadcrumb",
+          "plugins": {
+            "da": {
+              "name": "breadcrumb",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Button Group",
+          "id": "button-group",
+          "plugins": {
+            "da": {
+              "name": "button-group",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Card",
+          "id": "card",
+          "plugins": {
+            "da": {
+              "name": "card",
+              "rows": 4,
+              "columns": 0
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -109,6 +162,29 @@
           }
         },
         {
+          "title": "Collection",
+          "id": "collection",
+          "plugins": {
+            "da": {
+              "name": "collection",
+              "rows": 3,
+              "columns": 1
+            }
+          },
+          "model": "collection",
+          "filter": "collection"
+        },
+        {
+          "title": "Collection Item",
+          "id": "collection-item",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture><h3><a href=\"\">Item Title</a></h3><p>Description</p><p>By: Author Name</p><p>Date: January 27, 2024</p><p>Tags: Tag1, Tag2</p></div></div>"
+            }
+          },
+          "model": "collection-item"
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
@@ -141,6 +217,37 @@
           }
         },
         {
+          "title": "Embed",
+          "id": "embed",
+          "plugins": {
+            "da": {
+              "name": "embed",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Footer",
+          "id": "footer",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"footer\"><div><div>Footer content is managed via /nav/footer</div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Form",
+          "id": "form",
+          "plugins": {
+            "da": {
+              "name": "form",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "plugins": {
@@ -150,11 +257,130 @@
           }
         },
         {
+          "title": "Header",
+          "id": "header",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"header\"><div><div>Header content is managed via /nav/header</div></div></div>"
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
             "da": {
               "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture><h1></h1></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Icon List",
+          "id": "icon-list",
+          "plugins": {
+            "da": {
+              "name": "icon-list",
+              "rows": 3,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Icon",
+          "id": "icon",
+          "plugins": {
+            "da": {
+              "name": "icon",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Identifier",
+          "id": "identifier",
+          "plugins": {
+            "da": {
+              "name": "identifier",
+              "rows": 3,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "In-Page Navigation",
+          "id": "in-page-nav",
+          "plugins": {
+            "da": {
+              "name": "in-page-nav",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Link",
+          "id": "link",
+          "plugins": {
+            "da": {
+              "name": "link",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "List",
+          "id": "list",
+          "plugins": {
+            "da": {
+              "name": "list",
+              "rows": 1,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Modal",
+          "id": "modal",
+          "plugins": {
+            "da": {
+              "name": "modal",
+              "rows": 3,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Pagination",
+          "id": "pagination",
+          "plugins": {
+            "da": {
+              "name": "pagination",
+              "rows": 1,
+              "columns": 3
+            }
+          }
+        },
+        {
+          "title": "Process List",
+          "id": "process-list",
+          "plugins": {
+            "da": {
+              "name": "process-list",
+              "rows": 3,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Prose",
+          "id": "prose",
+          "plugins": {
+            "da": {
+              "name": "prose",
+              "rows": 3,
+              "columns": 0
             }
           }
         },
@@ -181,6 +407,50 @@
           }
         },
         {
+          "title": "Side Navigation",
+          "id": "side-nav",
+          "plugins": {
+            "da": {
+              "name": "side-nav",
+              "rows": 5,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Step Indicator",
+          "id": "step-indicator",
+          "plugins": {
+            "da": {
+              "name": "step-indicator",
+              "rows": 5,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Summary Box",
+          "id": "summary-box",
+          "plugins": {
+            "da": {
+              "name": "summary-box",
+              "rows": 3,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Table",
+          "id": "table",
+          "plugins": {
+            "da": {
+              "name": "table",
+              "rows": 3,
+              "columns": 3
+            }
+          }
+        },
+        {
           "title": "Tabs",
           "id": "tabs",
           "plugins": {
@@ -195,6 +465,17 @@
           "plugins": {
             "da": {
               "unsafeHTML": "<div><div><p></p></div><div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Tag",
+          "id": "tag",
+          "plugins": {
+            "da": {
+              "name": "tag",
+              "rows": 1,
+              "columns": 0
             }
           }
         },

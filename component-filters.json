@@ -44,6 +44,12 @@
     ]
   },
   {
+    "id": "collection",
+    "components": [
+      "collection-item"
+    ]
+  },
+  {
     "id": "columns",
     "components": [
       "columns-row"
