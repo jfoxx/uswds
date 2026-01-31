@@ -66,7 +66,7 @@ header • footer • breadcrumb • pagination • search • side-nav • in-p
 form • text-input • textarea • select • checkbox • radio • button-group • character-count • combo-box • date-picker • date-range-picker • file-input • input-mask • input-prefix-suffix • memorable-date • range-slider • time-picker • validation
 
 ### Content (10)
-alert • banner • icon-list • list • modal • process-list • prose • site-alert • summary-box • tooltip
+alert • banner • icon-list • list • modal • process-list • prose • summary-box • tooltip
 
 ### Specialized (3)
 identifier • language-selector • graphic-list

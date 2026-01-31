@@ -3186,9 +3186,19 @@ through all possible variants
 }
 
 /* Make hero full-width (edge-to-edge) */
-.hero-wrapper {
-  max-width: 100% !important;
+/* Override any container constraints and break out of section container */
+.hero.block {
+  max-width: none !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
   padding: 0 !important;
+}
+
+/* Ensure usa-hero also spans full width */
+.hero.block.usa-hero {
+  max-width: none !important;
+  width: 100vw !important;
 }
 
 /* Button text should be white in hero context */

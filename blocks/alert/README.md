@@ -119,11 +119,11 @@ Links are automatically styled within alerts:
 
 ## Accessibility
 
-The alert component automatically adds appropriate ARIA roles:
+The alert component automatically adds appropriate ARIA roles based on alert type:
 
-- **Error and Emergency alerts**: `role="alert"` (demands immediate attention)
-- **Success alerts**: `role="status"` (advisory information)
-- **Info and Warning alerts**: No role by default (can be added manually if needed)
+- **Error and Emergency alerts**: `role="alert"` - Demands immediate attention from assistive technologies
+- **Success alerts**: `role="status"` - Provides advisory information
+- **Info and Warning alerts**: `role="region"` with `aria-labelledby` - Allows users to find important information without interrupting workflow
 
 ### Best Practices
 
@@ -225,8 +225,8 @@ The block transforms your content into the USWDS alert structure:
 ## Related Components
 
 - [USWDS Alert Documentation](https://designsystem.digital.gov/components/alert/)
-- [Site Alert](../site-alert/) - For site-wide announcements
 - [Banner](../banner/) - For government site identification
+- [Hero](../hero/) - For prominent page headers
 
 ---
 

@@ -42,14 +42,17 @@ export default function decorate(block) {
     alert.classList.add('usa-alert--no-icon');
   }
 
-  // Add appropriate ARIA role based on alert type
+  // Add appropriate ARIA role based on alert type for accessibility
   // Error and emergency alerts need immediate attention
   if (alertType === 'error' || alertType === 'emergency') {
     alert.setAttribute('role', 'alert');
   } else if (alertType === 'success') {
     alert.setAttribute('role', 'status');
+  } else if (alertType === 'info' || alertType === 'warning') {
+    // Info and warning use role="region" with aria-labelledby
+    alert.setAttribute('role', 'region');
+    // Will add aria-labelledby if heading exists (see below)
   }
-  // Info and warning can use role="region" with label, but we'll let authors add it if needed
 
   // Create alert body
   const body = document.createElement('div');
@@ -58,11 +61,19 @@ export default function decorate(block) {
   // Process content
   // First heading (if any) becomes the alert heading
   let headingFound = false;
+  let headingId = null;
   children.forEach((child) => {
     if (child.matches('h1, h2, h3, h4, h5, h6') && !headingFound) {
       // First heading becomes usa-alert__heading
       const heading = child.cloneNode(true);
       heading.className = 'usa-alert__heading';
+
+      // Generate ID for aria-labelledby (for info and warning alerts)
+      if (alertType === 'info' || alertType === 'warning') {
+        headingId = `alert-heading-${Math.random().toString(36).substring(2, 9)}`;
+        heading.id = headingId;
+      }
+
       body.appendChild(heading);
       headingFound = true;
     } else if (child.matches('p, ul, ol')) {
@@ -87,6 +98,11 @@ export default function decorate(block) {
 
   // Assemble the alert
   alert.appendChild(body);
+
+  // Add aria-labelledby for info and warning alerts with headings
+  if ((alertType === 'info' || alertType === 'warning') && headingId) {
+    alert.setAttribute('aria-labelledby', headingId);
+  }
 
   // Replace block content with USWDS structure
   block.textContent = '';
