@@ -20,10 +20,6 @@ Each skill is a directory in `.claude/skills/` with the following structure:
 ```
 
 The SKILL.md file contains detailed instructions that you must follow exactly as written. Skills are designed to:
-- Provide specialized workflows for common tasks
-- Ensure consistency with project standards and best practices
-- Reduce errors by codifying expert knowledge
-- Chain together when tasks require multiple skill applications
 
 ### Skill Discovery and Execution Process
 
@@ -45,4 +41,6 @@ Always use the following process:
 Skills will be added to `.claude/skills/` as needed for this project. Check the `.claude/skills/` directory or run `./.agents/discover-skills` for the current list of available skills.
 
 **For ALL development work involving blocks, core scripts, or functionality, you MUST start with the content-driven-development skill.** It will orchestrate other skills as needed throughout the development workflow.
+ - New consolidated skill: `.skills/uswds/SKILL.md` contains repository-wide guidance and migration policy; use it as the single reference for agents performing imports or upgrades.
+ - Agent-facing copy: `.claude/skills/uswds/SKILL.md` is the same consolidated guidance for local agent discovery and execution.
 <!-- upskill:skills:end -->
