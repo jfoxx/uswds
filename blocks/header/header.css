@@ -37,12 +37,14 @@ header.usa-header .header.block {
 
 /* Desktop responsive styles */
 @media (min-width: 64em) {
-  .usa-logo {
-    max-width: 45%;
-  }
-
   .usa-logo__img {
     max-width: 5.5rem;
+  }
+
+  /* Align dropdown buttons with plain links in the primary nav */
+  .usa-nav__primary > .usa-nav__primary-item > button {
+    display: flex;
+    align-items: center;
   }
 }
 
