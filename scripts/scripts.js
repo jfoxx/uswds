@@ -18,6 +18,78 @@ import {
 } from './aem.js';
 
 /**
+ * Auto-generates a side nav from page headings and prepends it as the first section.
+ * Called only when body has the `sidenav-left` template class.
+ * @param {Element} main The container element
+ */
+function buildSideNavLeft(main) {
+  const headings = [...main.querySelectorAll('h2, h3')];
+  if (!headings.length) return;
+
+  // Assign IDs to headings so the nav links can anchor to them
+  headings.forEach((h) => {
+    if (!h.id) h.id = toClassName(h.textContent.trim());
+  });
+
+  // Build USWDS sidenav structure with h2 → items, h3 → subitems
+  const ul = document.createElement('ul');
+  ul.className = 'usa-sidenav';
+
+  const allLinks = [];
+  let currentItem = null;
+  let currentSublist = null;
+
+  headings.forEach((h) => {
+    const a = document.createElement('a');
+    a.href = `#${h.id}`;
+    a.textContent = h.textContent.trim();
+    allLinks.push(a);
+
+    if (h.tagName === 'H2') {
+      const li = document.createElement('li');
+      li.className = 'usa-sidenav__item';
+      li.append(a);
+      ul.append(li);
+      currentItem = li;
+      currentSublist = null;
+    } else {
+      if (!currentSublist) {
+        currentSublist = document.createElement('ul');
+        currentSublist.className = 'usa-sidenav__sublist';
+        if (currentItem) currentItem.append(currentSublist);
+        else ul.append(currentSublist);
+      }
+      const li = document.createElement('li');
+      li.className = 'usa-sidenav__sublist-item';
+      li.append(a);
+      currentSublist.append(li);
+    }
+  });
+
+  const navBlock = buildBlock('side-nav', [[ul]]);
+  const navSection = document.createElement('div');
+  navSection.append(navBlock);
+  main.prepend(navSection);
+
+  // Scroll spy: highlight the nav link for the heading currently in view
+  requestAnimationFrame(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            allLinks.forEach((l) => l.classList.remove('usa-current'));
+            const active = allLinks.find((l) => l.getAttribute('href') === `#${entry.target.id}`);
+            if (active) active.classList.add('usa-current');
+          }
+        });
+      },
+      { rootMargin: '-10% 0px -80% 0px', threshold: 0 },
+    );
+    headings.forEach((h) => observer.observe(h));
+  });
+}
+
+/**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
@@ -62,6 +134,7 @@ function autolinkModals(doc) {
 function buildAutoBlocks(main) {
   try {
     if (!main.querySelector('.hero')) buildHeroBlock(main);
+    if (document.body.classList.contains('sidenav-left')) buildSideNavLeft(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -141,6 +214,10 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  // Load template CSS early (before body is revealed) to avoid layout shift
+  const templateName = toClassName(getMetadata('template'));
+  if (templateName) loadCSS(`${window.hlx.codeBasePath}/styles/templates/${templateName}.css`);
 
   // Set header variant for CSS height calculation (prevents CLS)
   const headerVariant = getMetadata('header') || getMetadata('header-variant') || 'basic';
